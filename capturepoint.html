@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Project Details - Roboman</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .content p {
+            padding: 0 50px; /* Adjust the value as needed for the desired padding */
+            text-align: justify; /* Justify the text */
+
+        }
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2%;
+            padding: 0 50px ;
+        }
+        .video-item {
+            text-align: center;
+        }
+        .video-item video {
+            width: 100%;
+        }
+    </style>
+
+
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo"><a href="index.html">AB</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html" class="active">Project Details</a></li>
+                <li><a href="elements.html">Elements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="inner" style="text-align: center;" >
+            <header class="major">
+                <h2>Capture Point Control in Thruster-Assisted Bipedal Locomotion</h2>
+                <p>Exploring Stability and Mobility in Bipedal Robots</p>
+                <p> <a href="http://hdl.handle.net/2047/D20659775" target="_blank">Thesis</a>.</p>
+
+            </header>
+            <section class="features">
+                <article>
+                    <figure>
+                    <video loop width="1000" autoplay muted>
+                        <source src="videos/fast_walking.mp4" type="video/mp4">
+                    </video>
+                    <figcaption class="caption">Video: Harpy Walking Forward</figcaption>
+                    </figure>
+                    <p></p>
+                    <p></p>
+                    <hr></hr>
+                    <div class="content">
+                        <h2>Project Overview</h2>
+                        <p>During my master's program at Northeastern University, I dedicated my research to enhancing the stability and mobility of bipedal robots through the innovative use of thrusters. My project/thesis aimed to tackle the significant challenges that bipedal robots face, such as maintaining balance and navigating rough terrains. These challenges often lead to instability and falling, limiting the robots' operational effectiveness in real-world scenarios. To address this, I explored the integration of thrusters to provide additional posture manipulation, thereby expanding the modes of locomotion and improving stability.</p>
+                        <p>For more detailed report, you can access my thesis <a href="http://hdl.handle.net/2047/D20659775" target="_blank">here</a>.</p>
+
+                    </div>
+                </article>
+                <article>
+                    <img src="images/harpy_model.png" alt="" style="width: 1000px;  margin: 0 auto;" />
+                    <figcaption class="caption">Image: Harpy Model </figcaption>
+                    <p></p>
+                    <p></p>
+                    <hr></hr>
+                    <div class="content" >
+                        <h2>Technical Details</h2>
+                        <p>The core of my project involved designing a controller based on capture point control for a thruster-assisted bipedal robot, which I named Harpy. Capture point control is a method used to stabilize the upper body by predicting the robot's center of mass (CoM) and adjusting the foot placement accordingly. Here’s a detailed breakdown of my approach and methodology:</p>
+                        <p><b>Dynamic Model and Simulation:</b><br></p>
+                        <img src="images/full-dyn-mdl-prams.png" alt="" style="width: 500px;  margin: 0 auto;" />
+                        <figcaption class="caption">Image: Harpy Simulink Model </figcaption>
+                        <p>I started by developing a comprehensive dynamic model of Harpy. This included defining the kinematic structure, specifying the inertial properties, and modeling the actuator dynamics of the robot. I used MATLAB and Simscape Multibody to build a high-fidelity simulation environment. This setup allowed me to accurately simulate the robot's movements and interactions with its environment.</p>
+                        <p><b>Kinematic Structure:</b><br></p>
+                        <img src="images/modelling.png" alt="" style="width: 1000px;  margin: 0 auto;" />
+                        <figcaption class="caption">Image: Kinematic Structure </figcaption>    
+                        <p></p>
+                        <p>Harpy’s kinematic structure features six revolute joints: two at each hip for frontal and sagittal movement, and one at each knee for sagittal movement. These joints were modeled to replicate the robot's physical design and ensure realistic motion during simulations. I employed prismatic joints with spring and damping parameters to simulate the robot’s shock absorption capabilities. This was crucial for mimicking the real-world response to impacts.</p>
+                        <p><b>Actuation and Sensing:</b><br></p>
+                        <img src="images/kine.png" alt="" style="width: 1000px;  margin: 0 auto;" />
+                        <figcaption class="caption">Image: Detailed configuration of hip and knee actuators depicted as revolute joints within the robotic leg </figcaption> 
+                        <p></p>
+                        <p>The robot’s actuators were modeled to control the joint movements based on computed trajectories. I used PID controllers to manage the thrust forces and stabilize the robot’s roll and yaw motions. Sensors such as Transform Sensors and Inertia Sensors were integrated into the model to provide real-time data on body position, velocity, rotation, and foot placement. These sensors were vital for implementing the capture point control strategy.</p>
+                        <p><b>Control Strategy:</b><br></p>
+                        <img src="images/cpt_framework.png" alt="" style="width: 1000px;  margin: 0 auto;" />
+                        <figcaption class="caption">Image: Capture Point Illustration for Harpy </figcaption>
+                        <p></p>
+                        <img src="images/cpt_illu.png" alt="" style="width: 1000px;  margin: 0 auto;" />
+                        <figcaption class="caption">Image: Capture Point Concept </figcaption> 
+                        <p></p>
+                        <p>Capture point control method calculates the point on the ground where the robot's foot should be placed to maintain balance. By determining this capture point, the controller adjusts the foot trajectories dynamically to prevent falling. I implemented a feedback loop where the computed capture point influenced the trajectory generation. This ensured that the robot’s gait continuously adapted to maintain stability.</p>
+                        <p><b>Simulation Workflow:</b><br></p>
+                        <img src="images/sim_framework_updated.png" alt="" style="width: 1000px;  margin: 0 auto;" />
+                        <figcaption class="caption">Image: Simulation Workflow </figcaption> 
+                        <p></p>
+                        <p>The simulation workflow involved initializing the robot's position and step parameters, generating foot trajectories using Bezier polynomials, solving inverse kinematics for joint angles, and applying the capture point control for stability. The entire system operated in a modular architecture, allowing seamless integration and adjustments of individual components.</p>
+                    </div>
+                </article>
+                <hr>
+                <article>
+                    <div class="content">
+                        <h2>Results and Impact</h2>
+                        <p>The implementation of the capture point-based controller yielded promising results, significantly enhancing Harpy's stability and ability to recover from various unstable configurations. Here are some key outcomes from my simulations:</p>
+                        <p><h3>Trotting</h3></p>
+                        <video loop width="1000" autoplay muted>
+                            <source src="videos/trotting_4view_compiled.mp4" type="video/mp4">
+                        </video>
+                        <figcaption class="caption">Video: Harpy Trotting In Place</figcaption>
+                        <p> I implemented and tested the trotting gait in Harpy, which involves the robot staying in place while alternating between its legs.The results showed that Harpy could maintain balance and execute the trotting gait effectively.</p>
+                        <p></p>
+                        <p><h3>Recovery from Unstable Configurations</h3></p>
+                        <div class="video-container">
+                            <div class="video-item">
+                                <video autoplay muted loop>
+                                    <source src="videos/fall_forward_4view.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p>Video : Initial Position - Leaning Forward.</p>
+                            </div>
+                            <div class="video-item">
+                                <video autoplay muted loop>
+                                    <source src="videos/falling_back_4view.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p>Video : Initial Position - Leaning Backward.</p>
+                            </div>
+                        </div>
+                        <p>Demonstrated effective recovery from both forward and backward leaning positions. The capture point control allowed the robot to adjust its foot placement in real-time, preventing falls and maintaining balance.</p>
+                        <p></p>
+                        <p><h3>Stable Walking Patterns:</h3></p>
+                            <div class="video-container">
+                                <div class="video-item">
+                                    <video autoplay muted loop>
+                                        <source src="videos/slow_walking_4view.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <p>Video : Walking Forward</p>
+                                </div>
+                                <div class="video-item">
+                                    <video autoplay muted loop>
+                                        <source src="videos/walking_back.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <p>Video : Walking Backwards.</p>
+                                </div>
+                            </div>    
+                        <p>The robot maintained stable walking patterns even when subjected to varying walking speeds and external disturbances. This adaptability is crucial for real-world applications where the robot must navigate unpredictable environments.</p>
+                        <p></p>
+                        <p><h3>Push Recovery</h3></p>
+                        <div class="video-container">
+                            <div class="video-item">
+                                <video autoplay muted loop>
+                                    <source src="videos/push_trot.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p>Video : Push Recovery While Trotting</p>
+                            </div>
+                            <div class="video-item">
+                                <video autoplay muted loop>
+                                    <source src="videos/push_walk_4view.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p>Video : Push Recovery while Walking.</p>
+                            </div>
+                        </div>   
+                        <p>The controller enabled Harpy to recover from external pushes while walking and trotting. This capability is vital for ensuring stability in dynamic and potentially hazardous situations.</p>
+                        <p></p>
+                        <p><h3>Push Recovery using Thrusters</h3></p>
+                        <div class="video-container">
+                            <div class="video-item">
+                                <video autoplay muted loop>
+                                    <source src="videos/failure.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p>Video : Push Recovery Without Utilizing Thrusters</p>
+                            </div>
+                            <div class="video-item">
+                                <video autoplay muted loop>
+                                    <source src="videos/success.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p>Video : Push Recovery While Utilizing Thrusters.</p>
+                            </div>
+                        </div>
+                        <p>Additionally , I also implemented thruster manipulation to recover from external disturbances of large magnitudes. Utilizing thrusters in combination with capture point leverages both principles to accomodate for higher magnitude disturbances than they would individually.</p>
+                    </div>
+                    <p></p>
+                    <p>For more detailed information, you can access my thesis <a href="http://hdl.handle.net/2047/D20659775" target="_blank">here</a>.</p>
+
+                </article>
+            </section>
+            <footer class="major">
+                <ul class="actions special">
+                    <li><a href="index.html" class="button">Back to Home</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
