@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Development of a Self-Driving Car - Roboman</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .content p {
+            padding: 0 50px; /* Adjust the value as needed for the desired padding */
+            text-align: justify; /* Justify the text */
+
+        }
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2%;
+            padding: 0 50px ;
+        }
+        .video-item {
+            text-align: center;
+        }
+        .video-item video {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo"><a href="index.html">AB</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html" class="active">Self-Driving Car Project</a></li>
+                <li><a href="elements.html">Elements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="inner" style="text-align: center;">
+            <header class="major">
+                <h2>Development of a Self-Driving Car using Behavior Cloning and Perception/Planning Stack</h2>
+                <p>Team Members: Aditya Bondada, Harin Kumar Nallaguntla, Mani Chandhan Chakinala</p>
+            </header>
+
+            <!-- Introduction -->
+            <section class="features">
+                <article>
+                    <div class="content">
+                        <h3>Introduction</h3>
+                        <p>In this project, we aimed to develop a self-driving car using behavior cloning in the Unity simulator and a separate perception and planning stack in the CARLA simulator. We trained and tested our self-driving car using three NVIDIA models, each with convolutional layers, ELU activation layers, and fully connected layers. Additionally, we implemented a perception stack for object detection and traffic sign prediction, and a planning stack to navigate through traffic using hybrid RRT, A*, and Frenet optimal trajectory algorithms in the CARLA simulator.</p>
+                    </div>
+                </article>
+
+                <!-- Behavior Cloning Approach -->
+                <article>
+                    <div class="content">
+                        <h3>Behavior Cloning Approach</h3>
+                        <p>We used Udacity's self-driving car simulator to train our models. Behavior cloning involves training a model to imitate a human driver's behavior by learning from a large dataset of expert demonstrations. We experimented with different neural network architectures to improve performance, including increasing the depth of the fully connected layers and adding a skip connection between the input image and the first convolutional layer.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/neural_net_architecture.png" alt="Neural Net Architecture" style="width: 500px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+                <!-- Training Setup -->
+                <article>
+                    <div class="content">
+                        <h3>Training Setup</h3>
+                        <p>We drove around the simulator for 4 to 5 laps, collecting a training set of 8000 images and a validation set of 2000 images. We trained all three models for 10 epochs and deployed the trained models in the simulator.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/training_setup.png" alt="Training Setup" style="width: 500px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+                <!-- Results -->
+                <article>
+                    <div class="content">
+                        <h3>Results</h3>
+                        <p>Based on the loss curves, the model with deeper linear layers outperformed the other two models. The base model with deeper linear layers provided the best balance between performance and complexity.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/validation.png" alt="Loss Curves" style="width: 600px; display: block; margin: 0 auto;" /></span>
+                    <p>Validation loss vs epoch</p>
+                </article>
+                <div class="video-container">
+                    <div class="video-item">
+                        <img>
+                            <img src="images/base.gif" style="width: 400px" />
+                            <p>Testing of Base Model.</p>
+                    </img>
+                    <p></p>
+                    </div>
+                    <div class="video-item">
+                        <img>
+                            <img src="images/deep.gif" style="width: 400px"/>
+                            <p>Testing of Model with deeper linear layers.</p>
+                    </img>
+                    <p></p>
+                    </div>
+                    <div class="video-item">
+                        <img>
+                            <img src="images/skip.gif" style="width: 400px"/>
+                            <p> Testing of Model with Skip Connection.</p>
+                    </img>
+                    <p></p>
+                    </div>
+                    </div>  
+
+                <!-- Separate Perception and Planning Approach -->
+                <article>
+                    <div class="content">
+                        <h3>Separate Perception and Planning Approach</h3>
+                        <p>We used the CARLA simulator to develop a perception stack for object detection and a planning stack for trajectory planning. We implemented and compared Frenet Optimal Trajectory Planner, RRT* planner, and Hybrid A* planner.</p>
+                    </div>
+                </article>
+                
+
+                <!-- Object Detection -->
+                <article>
+                    <div class="content">
+                        <h3>Object Detection</h3>
+                        <p>In the perception stack, we used Faster-RCNN, SSD-Mobilenet-FPN-640, and SSDLite-Mobilenet-V2 for object detection. These models analyzed image data to provide real-time detection and localization of objects.</p>
+                    </div>
+                </article>
+               
+
+                <!-- Planning -->
+                <article>
+                    <div class="content">
+                        <h3>Planning</h3>
+                        <p>We implemented the Frenet Optimal Trajectory Planner, RRT* planner, and Hybrid A* planner in the planning stack. These planners generated safe and practical trajectories for the autonomous vehicle.</p>
+                    </div>
+                </article>
+                
+
+                <!-- Control -->
+                <article>
+                    <div class="content">
+                        <h3>Control</h3>
+                        <p>We used PID and MPC controllers to follow waypoints and goal speeds generated by the planning module. Both controllers computed commands for modifying brakes, steering, and throttle.</p>
+                    </div>
+                </article>
+                
+
+                <!-- Results -->
+                <article>
+                    <div class="content">
+                        <h3>Results</h3>
+                        <p>We evaluated nine combinations of object detection and planning algorithms. The Frenet Optimal Trajectory (FOT) planner combined with Faster-RCNN gave the most accurate and smooth trajectory, while the FOT planner with SSDLite-Mobilenet-V2 was the fastest. The analysis revealed that the FOT planner generated the smoothest trajectory among all planners.</p>
+                    </div>
+                </article>
+                <div class="video-container">
+                    <div class="video-item">
+                        <img>
+                            <img src="images/frenetfasterrcnn.gif" style="width: 400px" />
+                            <p>Faster-RCNN + Frenet Optimal Trajectory Planner.</p>
+                    </img>
+                    <p></p>
+                    </div>
+                    <div class="video-item">
+                        <img>
+                            <img src="images/frenet640.gif" style="width: 400px"/>
+                            <p>SSD-Mobilenet-FPN-640 + Frenet Optimal Trajectory Planner</p>
+                    </img>
+                    <p></p>
+                    </div>
+                    <div class="video-item">
+                        <img>
+                            <img src="images/hybridastar640.gif" style="width: 400px"/>
+                            <p>SSD-Mobilenet-FPN-640 + Hybrid A* Planner.</p>
+                    </img>
+                    <p></p>
+                    </div>
+                    </div>  
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img>
+                                <img src="images/hybridastar_ssdlite.gif" style="width: 400px" />
+                                <p>SSDLite-Mobilenet-V2 + Hybrid A* Planner</p>
+                        </img>
+                        <p></p>
+                        </div>
+                        <div class="video-item">
+                            <img>
+                                <img src="images/rrtstar640.gif" style="width: 400px"/>
+                                <p>SSD-Mobilenet-FPN-640 + RRT* Planner</p>
+                        </img>
+                        <p></p>
+                        </div>
+                        </div>  
+
+                        <div class="video-container">
+                            <div class="video-item">
+                                <img>
+                                    <img src="images/jerk.png" style="width:400px" />
+                                    <p>Lateral Jerk profiles vs time.</p>
+                            </img>
+                            <p></p>
+                            </div>
+                            <div class="video-item">
+                                <img>
+                                    <img src="images/table.png" style="width: 400px"/>
+                                    <p>Performance of Various configurations</p>
+                            </img>
+                            <p></p>
+                            </div>
+                            </div>      
+
+
+                <!-- Conclusion -->
+                <article>
+                    <div class="content">
+                        <h3>Conclusion</h3>
+                        <p>Our project demonstrated the feasibility of using behavior cloning and a separate perception/planning stack for self-driving cars. We concluded that the combination of Faster-RCNN with the FOT planner is optimal for accuracy and smoothness, while the FOT planner with SSDLite-Mobilenet-V2 is optimal for speed.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Footer -->
+            <footer class="major">
+                <ul class="actions special">
+                    <li><a href="index.html" class="button">Back to Home</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Stomping Towards Stability - Roboman</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .content p {
+            padding: 0 50px; /* Adjust the value as needed for the desired padding */
+            text-align: justify; /* Justify the text */
+
+        }
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2%;
+            padding: 0 50px ;
+        }
+        .video-item {
+            text-align: center;
+        }
+        .video-item video {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo"><a href="index.html">AB</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html" class="active">Three-Link Bipedal Robot</a></li>
+                <li><a href="elements.html">Elements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="inner" style="text-align: center;">
+            <header class="major">
+                <h2>Stomping Towards Stability: The Three-Link Bipedal Robot’s Quest for the Perfect Gait</h2>
+                <p>Team Members: Aditya Bondada, Harin Kumar Nallaguntla</p>
+            </header>
+            <span class="image"><img src="videos/legged.gif" alt="Three-Linked Bipedal Robot" style="width: 1000px; display: block; margin: 0 auto;" /></span>
+
+            <!-- Introduction -->
+            <section class="features">
+                <article>
+                    <div class="content">
+                        <h3>Introduction</h3>
+                        <p>In this project, we focused on modeling a planar robot as a three-link biped, assuming only one foot is in contact with the ground at any given time. We derived the equations of motion using Lagrangian formalism and computed the state space representation and zero dynamics equations. Our goal was to design optimization-based gaits and develop a non-linear feedback controller to maintain stability.</p>
+                    </div>
+                </article>
+
+                <!-- Kinematic Model -->
+                <article>
+                    <div class="content">
+                        <h3>Kinematic Model</h3>
+                        <p>The three-link biped consists of two legs and a torso, modeled as a planar mechanism. We defined the generalized coordinates and velocities for the biped and computed the positions and velocities of various points using forward kinematics and homogeneous transformations.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/threelinkmodel.jpg" alt="Three-Linked Bipedal Robot" style="width: 300px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+                <!-- Dynamics Model -->
+                <article>
+                    <div class="content">
+                        <h3>Dynamics Model</h3>
+                        <p>We derived the equations of motion using the Lagrangian method, considering kinetic and potential energies. The equations were formulated as a set of coupled non-linear differential equations. We extended the model to include the double support phase, where both feet touch the ground.</p>
+                    </div>
+                </article>
+
+                <!-- Gait Design -->
+                <article>
+                    <div class="content">
+                        <h3>Gait Design</h3>
+                        <p>We simulated the zero dynamics of the three-link biped in the sagittal plane using Bezier interpolation for gait design. We used optimization to find the optimal initial conditions for the zero dynamics states and the Bezier coefficients, ensuring smooth and efficient walking gaits.</p>
+                    </div>
+                </article>
+                
+                <!-- Non-Linear Controller -->
+                <article>
+                    <div class="content">
+                        <h3>Non-Linear Controller</h3>
+                        <p>We implemented a control strategy using feedback linearization. This involved computing the control action required to track desired joint angles by canceling out nonlinearities in the system. We combined this with a PD controller to maintain balance and ensure smooth gait transitions.</p>
+                    </div>
+                </article>
+                
+                <!-- Results -->
+                <article>
+                    <div class="content">
+                        <h3>Results</h3>
+                        <p>Our simulations demonstrated successful gait generation and stability maintenance. The feedback linearization technique, combined with the PD controller, provided effective control for the bipedal robot. The model accurately simulated walking gaits, including leg switch events during the double-support phase.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="videos/legged.gif" alt="Results" style="width: 1000px; display: block; margin: 0 auto;" /></span>
+                </article>
+                <article>
+                    <span class="image"><img src="images/jointangles.png" alt="Results" style="width: 700px; display: block; margin: 0 auto;" /></span>
+                </article>
+                <article>
+                    <span class="image"><img src="images/phaseportrait.png" alt="Results" style="width: 700px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+
+                <!-- Conclusion -->
+                <article>
+                    <div class="content">
+                        <h3>Conclusion</h3>
+                        <p>This project enhanced our understanding of legged robotics and bipedal locomotion. We successfully modeled and controlled a three-link biped, designing energetically efficient gaits and implementing a robust control strategy.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Footer -->
+            <footer class="major">
+                <ul class="actions special">
+                    <li><a href="index.html" class="button">Back to Home</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

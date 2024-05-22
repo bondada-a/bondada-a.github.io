@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>i-SLAM Final Report - Roboman</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .content p {
+            padding: 0 50px; /* Adjust the value as needed for the desired padding */
+            text-align: justify; /* Justify the text */
+
+        }
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2%;
+            padding: 0 50px ;
+        }
+        .video-item {
+            text-align: center;
+        }
+        .video-item video {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo"><a href="index.html">AB</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html" class="active">i-SLAM Final Report</a></li>
+                <li><a href="elements.html">Elements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="inner" style="text-align: center;">
+            <header class="major">
+                <h2>i-SLAM Final Report</h2>
+                <p>Modular Autonomy using Consumer Technology</p>
+            </header>
+            <section class="features">
+                <article>
+                    <video loop width="1200" controls>
+                        <source src="videos/rsn_video.mp4" type="video/mp4">
+                    </video>
+                    <div class="content">
+                        <h3>Overview</h3>
+                        <p>During this project, my team and I developed a method for using an iPhone’s sensors, specifically the LiDAR, Camera, and IMU data streams, to perform simultaneous localization and mapping (SLAM) using LiDAR, visual SLAM, and dead reckoning. By leveraging the capabilities of a commonly available consumer device - the iPhone, we aimed to allow individuals to easily build their own autonomous robots. Through various experiments, we demonstrated the effectiveness of this approach and discussed potential applications and future directions for this type of technology.</p>
+                        <p>The advantage of using an iPhone with a LiDAR scanner as part of a mobile platform is the versatility and flexibility of the system. Because the iPhone can be easily attached to any mobile platform, it provides a modular and scalable solution that can be adapted to a wide range of applications and environments.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/project_image.jpg" alt="" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                    <div class="content">
+                        <h3>Background</h3>
+                        <p>Modular autonomy, the integration of interchangeable components to enable autonomous behavior in a system, can be achieved through various approaches. Specialized autonomous systems, tailored to specific tasks or applications, offer high reliability and efficiency, but may be costly and inflexible for other purposes. Alternatively, consumer technology such as smartphones can provide a cost-effective and adaptable solution, although it may not be as reliable or durable as specialized systems. Traditional sensors attached to a mobile platform also enable the use of high-quality sensors, but may incur higher costs and complexity in the integration process.</p>
+                        <p>In this project, I utilized a smartphone equipped with LiDAR, IMU, and camera sensors to perform tasks such as SLAM, autonomous navigation, and mapping. By attaching the smartphone to a mobile platform such as an RC car or drone, we effectively solved modular autonomy through the use of consumer technology in a cost-effective and flexible manner. This approach has the potential to be applied in various contexts, including disaster response, reconnaissance, delivery robots, and mine exploration.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/project_image2.jpg" alt="" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                    <div class="content">
+                        <h3>Objectives</h3>
+                        <p>The aim of the project was defined by three objectives:</p>
+                        <ol>
+                            <li>Plot a trajectory of the LiDAR data recorded from an iPhone.</li>
+                            <li>Plot a 3D and 2D trajectory of a video that is recorded from iPhone’s camera with the PySLAM 2 algorithm.</li>
+                            <li>Plot a trajectory of the path taken with the iPhone’s sensors using the dead reckoning algorithm with MATLAB Mobile.</li>
+                        </ol>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/project_image3.jpg" alt="" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                    <div class="content">
+                        <h3>Sensors and Datasets</h3>
+                        <p>We collected three datasets using an iPhone following the same trajectory and analyzed the data through different algorithms to obtain a mapping of the area in various forms.</p>
+                        <p>Firstly, we installed an application called “Record3D” on the iPhone that scans the area and gives LiDAR data. This application can stream live data in two ways: via USB and over Wi-Fi. RTAB-Map was also installed as an application on the Windows laptop that performed the mapping. I manually calibrated the iPhone’s camera and obtained the camera intrinsics. The LiDAR data obtained was saved as a sequence of images which was then processed by the RTAB-Map algorithm via USB live streaming.</p>
+                        <p>Secondly, using the iPhone camera, I recorded an RGB video and processed it using the PySLAM 2 algorithm that detects visual landmarks to obtain the 2D and 3D trajectory.</p>
+                        <p>Thirdly, utilizing the MATLAB application on the iPhone consisting of motion sensors - Gyroscope, Magnetometer, and Accelerometer, we performed dead reckoning. The sensors on the iPhone are already calibrated off the shelf.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/project_image4.jpg" alt="" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                    <div class="content">
+                        <h3>Algorithms</h3>
+                        <p>SLAM (Simultaneous Localization and Mapping) uses a combination of sensors and computer vision techniques to perceive the environment and estimate the pose (position and orientation) of the robot in real-time. In our project, we used RTAB-Map with LiDAR data, PySLAM with visual data, and performed dead reckoning with IMU data to obtain the path.</p>
+                        <h4>RTAB-Map</h4>
+                        <p>Real-Time Appearance-Based Mapping (RTAB-Map) is a LiDAR SLAM algorithm that can be used on mobile robots and autonomous vehicles to build a 2D or 3D map of the environment while simultaneously tracking its position and orientation. It has several advantages including real-time performance, loop closure detection, appearance-based mapping, and compact and lightweight design. RTAB-Map uses LiDAR features in the environment to create the map, rather than relying on pre-defined landmarks or markers, making it suitable for use in a wide range of environments. It can also detect when the robot or device has returned to a previously visited location, allowing it to correct and improve the map by correcting for drift in real-time, improving the accuracy of the map.</p>
+                        <h4>PySLAM 2</h4>
+                        <p>PySLAM is a Python library that provides tools for developing and testing Simultaneous Localization and Mapping (SLAM) algorithms. It is built on top of the OpenCV library and can use a camera or a set of stereo images as input. PySLAM supports various types of SLAM algorithms, including monocular, stereo, and RGB-D. It includes scripts for simple visual odometry (VO) and more advanced SLAM pipelines that include multiple frame feature tracking, point triangulation, keyframe management, and bundle adjustment. PySLAM has several advantages, including ease of use, modularity, compatibility with different platforms and environments, open source accessibility, and a supportive community. We used PySLAM in our project to gather data points in a video dataset and calculate the estimated path, 3D trajectory, and 2D trajectory of the dataset.</p>
+                        <h4>Dead Reckoning</h4>
+                        <p>Dead Reckoning is a navigation technique that uses a combination of sensors and algorithms to estimate the position and orientation of a mobile device or vehicle. It is often used in situations where GPS signals are unavailable or unreliable. In dead reckoning, the mobile device uses sensors such as an accelerometer, gyroscope, and magnetometer to measure the linear and angular motion of the device. These measurements are combined with a known initial position and orientation to estimate the current position and orientation of the device. We used dead reckoning as PySLAM and RTAB-Map depend on the environment and the features detected, which means that the path obtained is heavily dependent on external factors. However, dead reckoning uses a different approach by relying on raw sensor data to obtain the path.</p>
+                    </div>
+                </article>
+                <article>
+                    <div class="content">
+                        <h3>Results and Impact</h3>
+                        <p>The implementation of these algorithms yielded promising results, significantly enhancing our ability to map and navigate using an iPhone. Here are some key outcomes from our experiments:</p>
+                        <p><b>Trajectory Mapping:</b><br>
+                        By following the same path for LiDAR-based SLAM, visual SLAM, and dead reckoning, we were able to compare the predicted paths. The results showed that LiDAR-based SLAM provided a highly accurate path and pose estimation, especially in more complex environments.</p>
+                        <div class="video-container">
+                            <div class="video-item">
+                                <img>
+                                    <img src="images/bulldog(1).png" style="width: 600px" />
+                                    <p>Lidar map of my friends.</p>
+                            </img>
+                            <p></p>
+                            </div>
+                            <div class="video-item">
+                                <img>
+                                    <img src="images/orbit.png" style="width: 600px"/>
+                                    <p>Lidar map of my friends sitting at a table.</p>
+                            </img>
+                            <p></p>
+                            </div>
+                            </div>  
+                        <p><b>Visual SLAM:</b><br>
+                        Using the PySLAM algorithm, we obtained a path that showed a good resemblance to the other methods. While the outdoor setting with fewer visual landmarks posed some challenges, the algorithm still managed to recognize turns and key features along the path.</p>
+                        <div class="video-container">
+                            <div class="video-item">
+                                <video autoplay muted loop>
+                                    <source src="videos/vslam1 (1).mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="video-item">
+                                <video autoplay muted loop>
+                                    <source src="videos/vslam1 (2).mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <p>RGBD video</p>
+                        </div>    
+                        <p><b>Dead Reckoning:</b><br>
+                        The predicted path from dead reckoning did not close the loop perfectly due to inherent sensor noise. However, with further filtering and noise reduction, the path accuracy can be improved.</p>
+                        <p>Overall, this project demonstrated the feasibility of using an iPhone to enable autonomous behavior in a mobile platform. Potential applications include reconnaissance, delivery robots, disaster response, and mine exploration. </p>
+                        <span class="image"><img src="images/predicted_yaw.png" alt="" style="width: 600px; display: block; margin: 0 auto;" /></span>
+
+                    </div>
+                </article>
+            </section>
+            <footer class="major">
+                <ul class="actions special">
+                    <li><a href="index.html" class="button">Back to Home</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

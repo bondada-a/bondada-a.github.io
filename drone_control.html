@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Drone Controller Optimization - Roboman</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .content p {
+            padding: 0 50px; /* Adjust the value as needed for the desired padding */
+            text-align: justify; /* Justify the text */
+
+        }
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2%;
+            padding: 0 50px ;
+        }
+        .video-item {
+            text-align: center;
+        }
+        .video-item video {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo"><a href="index.html">AB</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html" class="active">Drone Controller Optimization</a></li>
+                <li><a href="elements.html">Elements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="inner" style="text-align: center;">
+            <header class="major">
+                <h2>Drone Controller Optimization and Performance Comparison</h2>
+            </header>
+
+            <!-- Agenda -->
+            <section class="features">
+            
+
+                <!-- Introduction & Background -->
+                <article>
+                    <div class="content">
+                        <h3>Introduction & Background</h3>
+                        <p>The goal of our project was to optimize drone controllers to improve stability. With drones being increasingly used in various sectors such as military and delivery services, there is a growing need for accurate control systems. We implemented various controllers and explored two approaches to achieve this.</p>
+                    </div>
+                </article>
+
+                <!-- Mavic's Simple Simulink Model -->
+                <article>
+                    <div class="content">
+                        <hr>
+                        <h3>Mavic’s Simple Simulink Model</h3>
+                        <p>We created four functions to represent the drone and simplified it to create a decent model. Integrators were implemented to connect the acceleration blocks to velocities and positions. PID controllers were tuned to gather analysis.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/mavic.jpg" alt="" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+                <!-- PD Controller -->
+                <article>
+                    <div class="content">
+                        
+                        <hr>
+                        
+                        <h3>PD Controller</h3>
+                        <p>A Proportional-Derivative (PD) controller is a feedback control system widely used in engineering applications. It responds to both the current error and the rate of change of the error, making it effective in stabilizing systems. We used a PD controller for our drone to stabilize its orientation and maintain a desired trajectory.</p>
+                    </div>
+                </article>
+
+                <!-- Sliding Mode Controller -->
+                <article>
+                    <div class="content">
+                        <hr>
+                        <h3>Sliding Mode Controller</h3>
+                        <p>A Sliding Mode Controller (SMC) is a nonlinear control system that ensures the system's state trajectories converge onto a predefined "sliding surface" and stay on it. It is robust against disturbances and uncertainties, making it suitable for precision control in drones.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/smc.png" alt="" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+                <!-- Backstepping Controller -->
+                <article>
+                    <div class="content">
+                        <hr>
+                        <h3>Backstepping Controller</h3>
+                        <p>Backstepping control is a recursive design process that breaks down the nonlinear control problem into simpler subsystems. It relies on the Lyapunov stability theory to ensure stability, making it crucial for safe and controlled drone flight.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/backstepping.png" alt="" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+                <!-- Results -->
+                <article>
+                    <div class="content">
+                        <hr>
+                        <h3>Results</h3>
+                        <p>Our simulations showed the following results:</p>
+                        <ul>
+                            <li><b>PD Controller:</b> Simple implementation but sensitive to noise.</li>
+                            <span class="image"><img src="images/image7.gif" alt="" style="width: 700px; display: block; margin: 0 auto;" /></span>
+
+                            <li><b>Sliding Mode Controller:</b> Robust against disturbances but had discontinuous control actions.</li>
+                            <span class="image"><img src="images/image8.gif" alt="" style="width: 700px; display: block; margin: 0 auto;" /></span>
+
+                            <li><b>Backstepping Controller:</b> Best performance with smooth control actions.</li>
+                            <span class="image"><img src="images/image10.gif" alt="" style="width: 700px; display: block; margin: 0 auto;" /></span>
+
+                        </ul>
+                    </div>
+                </article>
+                
+
+
+                <!-- Summary -->
+                <article>
+                    <div class="content">
+                        <h3>Summary</h3>
+                        <p>We created a simple model for the drone to understand flight dynamics. The backstepping controller worked best in our simulation, followed by the sliding mode controller and PD controller. We faced challenges but gained valuable insights, which we hope to apply in future projects.</p>
+                        <ul>
+                            <li>PD controller is simple but lacks robustness.</li>
+                            <li>SMC is robust but can impact actuators due to discontinuous control.</li>
+                            <li>Backstepping controller ensures stability but requires complex tuning.</li>
+                            <br>
+                            <span class="image"><img src="images/image6.png" alt="" style="width: 500px; display: block; margin: 0 auto;" /></span>
+                            <span class="image"><img src="images/image11.png" alt="" style="width: 700px; display: block; margin: 0 auto;" /></span>
+
+                        </ul>
+                        
+                    </div>
+                </article>
+            </section>
+            <hr>
+
+            <h3>Read the whole detailed report here.  </h3>
+            <embed src="assets/Control_system_project.pdf" width="1200" height="500"  type="application/pdf">
+            
+
+            <!-- Footer -->
+            <footer class="major">
+                <ul class="actions special">
+                    <li><a href="index.html" class="button">Back to Home</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
