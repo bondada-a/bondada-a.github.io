@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Global Path Planning for Robot with N-Trailers - Roboman</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .content p {
+            padding: 0 50px; /* Adjust the value as needed for the desired padding */
+            text-align: justify; /* Justify the text */
+        }
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2%;
+            padding: 0 50px;
+        }
+        .video-item {
+            text-align: center;
+        }
+        .video-item video {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo"><a href="index.html">AB</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html" class="active">Global Path Planning for Robot with N-Trailers</a></li>
+                <li><a href="elements.html">Elements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="inner" style="text-align: center;">
+            <header class="major">
+                <h2>Global Path Planning for Robot with N-Trailers</h2>
+            </header>
+
+            <!-- Problem Statement -->
+            <section class="features">
+                <article>
+                    <div class="content">
+                        <h3>Problem Statement</h3>
+                        <p>The objective of my project was to find a path for the robot that considers the trajectories of the trailers and avoids collisions.</p>
+                    </div>
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="images/trailer (2).png" style="width: 400px" />
+                            <p>Path planning for just the robot</p>
+                        </div>
+                        <div class="video-item">
+                            <img src="images/trailer (1).png" style="width: 400px" />
+                            <p>Path planning including trailer trajectories.</p>
+                        </div>
+                    </div>
+                </article>
+                <hr>
+                <!-- Approaches Tested -->
+                <article>
+                    <div class="content">
+                        <h3>Approaches Tested</h3>
+                        <p>I tested multiple approaches to solve the problem:</p>
+                        <ul>
+                            <li>Turning Radius</li>
+                            <li>Geometric approach for velocity and steering angles with obstacle avoidance</li>
+                            <li>Hybrid A* for truck trailer system</li>
+                            <li>Deterministic grid-based search</li>
+                        </ul>
+                    </div>
+                </article>
+                <hr>
+                <!-- Introduction -->
+                <article>
+                    <div class="content">
+                        <h3>Introduction</h3>
+                        <p>I explored both general and standard trailers to understand their kinematics and control processes.</p>
+                    </div>
+                </article>
+                <div class="video-container">
+                    <div class="video-item">
+                        <img src="images/trailertype (1).png" style="width: 400px" />
+                        <p>Standard Trailer System</p>
+                    </div>
+                    <div class="video-item">
+                        <img src="images/trailertype (2).png" style="width: 400px" />
+                        <p>General Trailer System.</p>
+                    </div>
+                </div>
+                <hr>
+                <!-- Approach 1 -->
+                <article>
+                    <div class="content">
+                        <h3>Approach 1: Geometric Approach</h3>
+                        <p>This approach involves targeting convergence and obstacle avoidance for a non-standard tractor-trailer robot using a geometric method.</p>
+                        <ul>
+                            <li>Kinematic model of the system</li>
+                            <li>Design of control inputs</li>
+                        </ul>
+                        <p>The control inputs are designed based on numerical integration of nonlinear differential equations using a 4th order Runge Kutta method. Obstacles are defined as either lines or ellipses. To ensure safety, I enclosed the tractor and each trailer in the smallest possible circles and adjusted the control inputs accordingly.</p>
+                    </div>
+                </article>
+
+                    <div class="video-item">
+                        <img src="images/geometricapproach.png" style="width: 400px" />
+                    </div>
+                        <video width="1200" autoplay muted loop >
+                            <source src="videos/approach1.mp4" type="video/mp4" style="width: 600px;" >
+                        </video>
+
+                <hr>
+                <!-- Approach 2 -->
+                <article>
+                    <div class="content">
+                        <h3>Approach 2: Hybrid A* for Truck Trailer System</h3>
+                        <p>This approach uses a Hybrid A* algorithm to find a path while checking for trailers. It evaluates all possible configurations and removes those that result in collisions.</p>
+                        <p>The Hybrid A* algorithm was chosen for its ability to include trailers in the path planning process, unlike the general A* algorithm. However, this increases computational complexity with the number of trailers.</p>
+                    </div>
+                </article>
+                <div class="video-container">
+                    <div class="video-item">
+                        <img src="images/hybridastar.jpeg" style="width: 400px" />
+                    </div>
+                    <div class="video-item">
+                        <img src="images/hybridastar.gif" style="width: 400px" />
+
+                    </div>
+                </div>
+                <hr>
+                <!-- Approach 3 -->
+                <article>
+                    <div class="content">
+                        <h3>Approach 3: Deterministic Grid-Based Search</h3>
+                        <p>This approach uses a deterministic grid-based search with a cost function calculated based on the error between the truck and trailer wheels.</p>
+                        <p>A potentiometer measures the angle between the truck and the trailer to determine the error for the controller.</p>
+                    </div>
+                </article>
+                <div class="video-container">
+                    <div class="video-item">
+                        <img src="images/image15.png" style="width: 400px" />
+                    </div>
+                    <div class="video-item">
+                        <video width="500" autoplay muted loop >
+                            <source src="videos/approach2.mp4" type="video/mp4" >
+                        </video>
+                        </div>
+                </div>
+                <hr>
+                <!-- Approach 4 -->
+                <article>
+                    <div class="content">
+                        <h3>Approach 4: Turning Radius</h3>
+                        <p>I calculated the maximum possible turning radius for the system, considering the maximum offset that can safely maneuver turns for N trailers. However, this approach proved less effective as it didn't account for realistic offsets.</p>
+                    </div>
+                </article>
+                <article>
+                    <span class="image"><img src="images/image16.png" alt="Subproblem Division" style="width: 200px; display: block; margin: 0 auto;" /></span>
+                </article>
+                <hr>
+                 <!-- Approach 4 -->
+                 <article>
+                    <div class="content">
+                        <h3>Approach 5: Nonlinear Programming based</h3>
+                        <p>This approach is based off of recent research in the field : <a href="https://ieeexplore.ieee.org/document/8793955">ICRA Paper</a>. While this approach works , it is not online and requires very high computation time and resources as the number of trailers increase.</p>
+                    </div>
+                </article>
+                <video width="700" autoplay muted loop >
+                    <source src="videos/icra.mp4" type="video/mp4" >
+                </video>
+                <hr>
+                <!-- Simulation Approaches -->
+                <article>
+                    <div class="content">
+                        <h3>Simulation Approaches</h3>
+                        <p>I simulated the system in ROS and Gazebo using two approaches:</p>
+                        <ul>
+                            <li>Approach 1: Defining the robot and trolleys in a xacro/urdf file and simulating in a known environment. However, the hinge joint behavior was unexpected, and the Rviz representation was inaccurate.</li>
+                            <li>Approach 2: Launching the robot in Gazebo and adding trailers as models. This approach provided accurate representations but faced initial setup issues.</li>
+                        </ul>
+                    </div>
+                </article>
+                <video width="700" autoplay muted loop >
+                    <source src="videos/simapproach.mp4" type="video/mp4" >
+                </video>
+
+                <!-- Conclusion -->
+                <article>
+                    <div class="content">
+                        <h3>Conclusion</h3>
+                        <p>This project allowed me to explore various path planning algorithms for a robot with N-trailers. Each approach had its strengths and weaknesses, providing valuable insights for future work. I plan to refine these approaches and address the identified issues to develop a robust solution for global path planning with multiple trailers.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Footer -->
+            <footer class="major">
+                <ul class="actions special">
+                    <li><a href="index.html" class="button">Back to Home</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
