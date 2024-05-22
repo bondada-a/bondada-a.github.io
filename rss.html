@@ -10,13 +10,12 @@
         .content p {
             padding: 0 50px; /* Adjust the value as needed for the desired padding */
             text-align: justify; /* Justify the text */
-
         }
         .video-container {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 2%;
-            padding: 0 50px ;
+            padding: 0 50px;
         }
         .video-item {
             text-align: center;
@@ -45,7 +44,7 @@
         <div class="inner" style="text-align: center;">
             <header class="major">
                 <h2>Development of a Self-Driving Car using Behavior Cloning and Perception/Planning Stack</h2>
-                <p>Team Members: Aditya Bondada, Harin Kumar Nallaguntla, Mani Chandhan Chakinala</p>
+                
             </header>
 
             <!-- Introduction -->
@@ -53,7 +52,7 @@
                 <article>
                     <div class="content">
                         <h3>Introduction</h3>
-                        <p>In this project, we aimed to develop a self-driving car using behavior cloning in the Unity simulator and a separate perception and planning stack in the CARLA simulator. We trained and tested our self-driving car using three NVIDIA models, each with convolutional layers, ELU activation layers, and fully connected layers. Additionally, we implemented a perception stack for object detection and traffic sign prediction, and a planning stack to navigate through traffic using hybrid RRT, A*, and Frenet optimal trajectory algorithms in the CARLA simulator.</p>
+                        <p>In this project, I aimed to develop a self-driving car using behavior cloning in the Unity simulator and a separate perception and planning stack in the CARLA simulator. I trained and tested the self-driving car using three NVIDIA models, each with convolutional layers, ELU activation layers, and fully connected layers. Additionally, I implemented a perception stack for object detection and traffic sign prediction, and a planning stack to navigate through traffic using hybrid RRT, A*, and Frenet optimal trajectory algorithms in the CARLA simulator.</p>
                     </div>
                 </article>
 
@@ -61,7 +60,7 @@
                 <article>
                     <div class="content">
                         <h3>Behavior Cloning Approach</h3>
-                        <p>We used Udacity's self-driving car simulator to train our models. Behavior cloning involves training a model to imitate a human driver's behavior by learning from a large dataset of expert demonstrations. We experimented with different neural network architectures to improve performance, including increasing the depth of the fully connected layers and adding a skip connection between the input image and the first convolutional layer.</p>
+                        <p>I used Udacity's self-driving car simulator to train the models. Behavior cloning involves training a model to imitate a human driver's behavior by learning from a large dataset of expert demonstrations. I experimented with different neural network architectures to improve performance, including increasing the depth of the fully connected layers and adding a skip connection between the input image and the first convolutional layer.</p>
                     </div>
                 </article>
                 <article>
@@ -72,7 +71,7 @@
                 <article>
                     <div class="content">
                         <h3>Training Setup</h3>
-                        <p>We drove around the simulator for 4 to 5 laps, collecting a training set of 8000 images and a validation set of 2000 images. We trained all three models for 10 epochs and deployed the trained models in the simulator.</p>
+                        <p>I drove around the simulator for 4 to 5 laps, collecting a training set of 8000 images and a validation set of 2000 images. I trained all three models for 10 epochs and deployed the trained models in the simulator.</p>
                     </div>
                 </article>
                 <article>
@@ -92,134 +91,98 @@
                 </article>
                 <div class="video-container">
                     <div class="video-item">
-                        <img>
-                            <img src="images/base.gif" style="width: 400px" />
-                            <p>Testing of Base Model.</p>
-                    </img>
-                    <p></p>
+                        <img src="images/base.gif" style="width: 400px" />
+                        <p>Testing of Base Model.</p>
                     </div>
                     <div class="video-item">
-                        <img>
-                            <img src="images/deep.gif" style="width: 400px"/>
-                            <p>Testing of Model with deeper linear layers.</p>
-                    </img>
-                    <p></p>
+                        <img src="images/deep.gif" style="width: 400px" />
+                        <p>Testing of Model with deeper linear layers.</p>
                     </div>
                     <div class="video-item">
-                        <img>
-                            <img src="images/skip.gif" style="width: 400px"/>
-                            <p> Testing of Model with Skip Connection.</p>
-                    </img>
-                    <p></p>
+                        <img src="images/skip.gif" style="width: 400px" />
+                        <p>Testing of Model with Skip Connection.</p>
                     </div>
-                    </div>  
+                </div>
 
                 <!-- Separate Perception and Planning Approach -->
                 <article>
                     <div class="content">
                         <h3>Separate Perception and Planning Approach</h3>
-                        <p>We used the CARLA simulator to develop a perception stack for object detection and a planning stack for trajectory planning. We implemented and compared Frenet Optimal Trajectory Planner, RRT* planner, and Hybrid A* planner.</p>
+                        <p>I used the CARLA simulator to develop a perception stack for object detection and a planning stack for trajectory planning. I implemented and compared Frenet Optimal Trajectory Planner, RRT* planner, and Hybrid A* planner.</p>
                     </div>
                 </article>
-                
 
                 <!-- Object Detection -->
                 <article>
                     <div class="content">
                         <h3>Object Detection</h3>
-                        <p>In the perception stack, we used Faster-RCNN, SSD-Mobilenet-FPN-640, and SSDLite-Mobilenet-V2 for object detection. These models analyzed image data to provide real-time detection and localization of objects.</p>
+                        <p>In the perception stack, I used Faster-RCNN, SSD-Mobilenet-FPN-640, and SSDLite-Mobilenet-V2 for object detection. These models analyzed image data to provide real-time detection and localization of objects.</p>
                     </div>
                 </article>
-               
 
                 <!-- Planning -->
                 <article>
                     <div class="content">
                         <h3>Planning</h3>
-                        <p>We implemented the Frenet Optimal Trajectory Planner, RRT* planner, and Hybrid A* planner in the planning stack. These planners generated safe and practical trajectories for the autonomous vehicle.</p>
+                        <p>I implemented the Frenet Optimal Trajectory Planner, RRT* planner, and Hybrid A* planner in the planning stack. These planners generated safe and practical trajectories for the autonomous vehicle.</p>
                     </div>
                 </article>
-                
 
                 <!-- Control -->
                 <article>
                     <div class="content">
                         <h3>Control</h3>
-                        <p>We used PID and MPC controllers to follow waypoints and goal speeds generated by the planning module. Both controllers computed commands for modifying brakes, steering, and throttle.</p>
+                        <p>I used PID and MPC controllers to follow waypoints and goal speeds generated by the planning module. Both controllers computed commands for modifying brakes, steering, and throttle.</p>
                     </div>
                 </article>
-                
 
                 <!-- Results -->
                 <article>
                     <div class="content">
                         <h3>Results</h3>
-                        <p>We evaluated nine combinations of object detection and planning algorithms. The Frenet Optimal Trajectory (FOT) planner combined with Faster-RCNN gave the most accurate and smooth trajectory, while the FOT planner with SSDLite-Mobilenet-V2 was the fastest. The analysis revealed that the FOT planner generated the smoothest trajectory among all planners.</p>
+                        <p>I evaluated nine combinations of object detection and planning algorithms. The Frenet Optimal Trajectory (FOT) planner combined with Faster-RCNN gave the most accurate and smooth trajectory, while the FOT planner with SSDLite-Mobilenet-V2 was the fastest. The analysis revealed that the FOT planner generated the smoothest trajectory among all planners.</p>
                     </div>
                 </article>
                 <div class="video-container">
                     <div class="video-item">
-                        <img>
-                            <img src="images/frenetfasterrcnn.gif" style="width: 400px" />
-                            <p>Faster-RCNN + Frenet Optimal Trajectory Planner.</p>
-                    </img>
-                    <p></p>
+                        <img src="images/frenetfasterrcnn.gif" style="width: 400px" />
+                        <p>Faster-RCNN + Frenet Optimal Trajectory Planner.</p>
                     </div>
                     <div class="video-item">
-                        <img>
-                            <img src="images/frenet640.gif" style="width: 400px"/>
-                            <p>SSD-Mobilenet-FPN-640 + Frenet Optimal Trajectory Planner</p>
-                    </img>
-                    <p></p>
+                        <img src="images/frenet640.gif" style="width: 400px" />
+                        <p>SSD-Mobilenet-FPN-640 + Frenet Optimal Trajectory Planner.</p>
                     </div>
                     <div class="video-item">
-                        <img>
-                            <img src="images/hybridastar640.gif" style="width: 400px"/>
-                            <p>SSD-Mobilenet-FPN-640 + Hybrid A* Planner.</p>
-                    </img>
-                    <p></p>
+                        <img src="images/hybridastar640.gif" style="width: 400px" />
+                        <p>SSD-Mobilenet-FPN-640 + Hybrid A* Planner.</p>
                     </div>
-                    </div>  
-                    <div class="video-container">
-                        <div class="video-item">
-                            <img>
-                                <img src="images/hybridastar_ssdlite.gif" style="width: 400px" />
-                                <p>SSDLite-Mobilenet-V2 + Hybrid A* Planner</p>
-                        </img>
-                        <p></p>
-                        </div>
-                        <div class="video-item">
-                            <img>
-                                <img src="images/rrtstar640.gif" style="width: 400px"/>
-                                <p>SSD-Mobilenet-FPN-640 + RRT* Planner</p>
-                        </img>
-                        <p></p>
-                        </div>
-                        </div>  
-
-                        <div class="video-container">
-                            <div class="video-item">
-                                <img>
-                                    <img src="images/jerk.png" style="width:400px" />
-                                    <p>Lateral Jerk profiles vs time.</p>
-                            </img>
-                            <p></p>
-                            </div>
-                            <div class="video-item">
-                                <img>
-                                    <img src="images/table.png" style="width: 400px"/>
-                                    <p>Performance of Various configurations</p>
-                            </img>
-                            <p></p>
-                            </div>
-                            </div>      
-
+                </div>
+                <div class="video-container">
+                    <div class="video-item">
+                        <img src="images/hybridastar_ssdlite.gif" style="width: 400px" />
+                        <p>SSDLite-Mobilenet-V2 + Hybrid A* Planner.</p>
+                    </div>
+                    <div class="video-item">
+                        <img src="images/rrtstar640.gif" style="width: 400px" />
+                        <p>SSD-Mobilenet-FPN-640 + RRT* Planner.</p>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <div class="video-item">
+                        <img src="images/jerk.png" style="width: 400px" />
+                        <p>Lateral Jerk profiles vs time.</p>
+                    </div>
+                    <div class="video-item">
+                        <img src="images/table.png" style="width: 400px" />
+                        <p>Performance of Various configurations.</p>
+                    </div>
+                </div>
 
                 <!-- Conclusion -->
                 <article>
                     <div class="content">
                         <h3>Conclusion</h3>
-                        <p>Our project demonstrated the feasibility of using behavior cloning and a separate perception/planning stack for self-driving cars. We concluded that the combination of Faster-RCNN with the FOT planner is optimal for accuracy and smoothness, while the FOT planner with SSDLite-Mobilenet-V2 is optimal for speed.</p>
+                        <p>My project demonstrated the feasibility of using behavior cloning and a separate perception/planning stack for self-driving cars. I concluded that the combination of Faster-RCNN with the FOT planner is optimal for accuracy and smoothness, while the FOT planner with SSDLite-Mobilenet-V2 is optimal for speed.</p>
                     </div>
                 </article>
             </section>
