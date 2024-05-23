@@ -52,27 +52,99 @@
                     <div class="content">
                         <h3>Introduction & Background</h3>
                         <p>In this project, I aimed to develop a drone-assisted system for fighting wildfires using the Robot Operating System (ROS). Utilizing multiple UAVs, I focused on detecting and monitoring wildfires to facilitate early intervention and suppression. The project leveraged Voronoi Partitioning Algorithm to optimize the deployment of UAVs, ensuring efficient and unbiased coverage of the affected area.</p>
+                        <p>Multiple UAVs have been extensively used to recognize spot fires and screen out of control fire hazards moving toward a structure, fence, forest, or firefighting crew via remote sensing.</p>
+                        <p>Once the drone detects the fire-affected area, the course of action would be to extinguish the fire by using fire extinguishing balls. The ball is made up of Styrofoam which is environmentally friendly and biodegradable. There are currently two brands that dominate this market, namely: The Elide and the AFO.</p>
                     </div>
-                    <span class="image"><img src="images/voronoi_tessellation.png" alt="Voronoi Tessellation" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                    <span class="image"><img src="images/concept.png" alt="Concept" style="width: 800px; display: block; margin: 0 auto;" /></span>
+                    <p>Concept for fire detection</p>
                 </article>
 
+                <div class="video-container">
+                    <div class="video-item">
+                        <img src="images/illus.jpg" style="width: 600px" />
+                        <p>Working of fire extinguishing balls.</p>
+                    </div>
+                    <div class="video-item">
+                        <img src="images/illus2.png" style="width: 400px" />
+                        <p>Proposed attachment of Fire Extinguishing balls to Drones.</p>
+                    </div>
+                </div>
+                <hr>
                 <!-- Voronoi Tessellation -->
                 <article>
                     <div class="content">
                         <h3>Voronoi Tessellation</h3>
                         <p>I used Voronoi Tessellation to divide the area into convex polygons, with each UAV situated at the centroid of its respective polygon. This method ensured that each drone covered an equal area, optimizing the search and detection process. The MATLAB simulation demonstrated the effectiveness of this approach with 'n' number of drones.</p>
                     </div>
-                    <span class="image"><img src="images/voronoi_tessellation.png" alt="Voronoi Tessellation" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="images/voronoi50.png" style="width: 500px" />
+                            <p>Configuration of 50 drones after Voronoi Tessellation</p>
+                    
+                        </div>
+                        <div class="video-item">
+                            <video width="500" autoplay muted loop >
+                                <source src="videos/voronoivid.mp4" type="video/mp4" >
+                            </video>
+                            <p>Voronoi simulation for 50 and 10 drones.</p>
+
+                            </div>
+                    </div>
                 </article>
+                <hr>
 
                 <!-- Hector Quadrotor Simulation -->
                 <article>
                     <div class="content">
-                        <h3>Hector Quadrotor Simulation</h3>
+                        <h3>Drone Simulation</h3>
                         <p>To simulate the UAVs, I used the Hector Quadrotor in the Gazebo environment. This simulation closely represented real-world flight, allowing for the testing of flight algorithms and control approaches. I equipped the quadrotors with thermal cameras to detect high-temperature areas indicative of fires.</p>
                     </div>
-                    <span class="image"><img src="images/hector_quadrotor.png" alt="Hector Quadrotor" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="images/hector.jpg" style="width: 400px" />
+                            <p>Hector Quadrotor</p>
+                    
+                        </div>
+                        <div class="video-item">
+                            <video width="500" autoplay muted loop >
+                                <source src="videos/hectorcamera.mp4" type="video/mp4" >
+                            </video>
+                            <p>Simulation with live thermal camera feed.</p>
+                            </div>
+                    </div>
                 </article>
+
+                <hr>
+                <!-- Hector Quadrotor Simulation -->
+                <article>
+                    <div class="content">
+                        <h3>Thermal Environment and Cameras</h3>
+                        <p>To recreate a virtual wildfire in the simulated environment, I used the blender to create the environment module including wildfire using different texture modules. This was imported into the gazebo environment.</p>
+                    </div>
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="images/forest.png" style="width: 600px" />
+                            <p>Forest environment</p>
+                        </div>
+                        <div class="video-item">
+                            <img src="images/redtree.png" style="width: 600px" />
+                            <p>Red colored objects indicating fire.</p>
+                        </div>
+                    </div>
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="images/visu.png" style="width: 600px" />
+                            <p>Forest view through Drone Camera.</p>
+                        </div>
+                        <div class="video-item">
+                            <img src="images/firedetec.png" style="width: 600px" />
+                            <p>Fire Detected using Drone Camera feed.</p>
+                        </div>
+                    </div>
+                    
+                </article>
+                <hr>
+
 
                 <!-- Results -->
                 <article>
@@ -80,16 +152,10 @@
                         <h3>Results</h3>
                         <p>The simulations showed that using Voronoi Tessellation with multiple UAVs significantly improved the efficiency and accuracy of wildfire detection. The Hector Quadrotor equipped with thermal cameras was able to identify fire-affected areas accurately. The system's ability to operate autonomously and in coordination reduced human error and enhanced the effectiveness of wildfire monitoring and suppression.</p>
                     </div>
-                    <div class="video-container">
-                        <div class="video-item">
-                            <img src="images/results_voronoi.png" alt="Voronoi Results" style="width: 100%;" />
-                            <p>Voronoi Tessellation Results</p>
-                        </div>
-                        <div class="video-item">
-                            <img src="images/results_hector.png" alt="Hector Results" style="width: 100%;" />
-                            <p>Hector Quadrotor Simulation</p>
-                        </div>
-                    </div>
+                    <video width="1100" autoplay muted loop >
+                        <source src="videos/finalfire.mp4" type="video/mp4" >
+                    </video>
+                    
                 </article>
 
                 <!-- Conclusion -->
