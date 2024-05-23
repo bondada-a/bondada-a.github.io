@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Drone Assisted Wildfire Fighting System - Roboman</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .content p {
+            padding: 0 50px; /* Adjust the value as needed for the desired padding */
+            text-align: justify; /* Justify the text */
+        }
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2%;
+            padding: 0 50px ;
+        }
+        .video-item {
+            text-align: center;
+        }
+        .video-item video {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo"><a href="index.html">AB</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html" class="active">Wildfire Fighting Project</a></li>
+                <li><a href="elements.html">Elements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="inner" style="text-align: center;">
+            <header class="major">
+                <h2>Design and Optimization of Drone Assisted Wildfire Fighting System</h2>
+            </header>
+
+            <!-- Introduction -->
+            <section class="features">
+                <article>
+                    <div class="content">
+                        <h3>Introduction & Background</h3>
+                        <p>In this project, I aimed to develop a drone-assisted system for fighting wildfires using the Robot Operating System (ROS). Utilizing multiple UAVs, I focused on detecting and monitoring wildfires to facilitate early intervention and suppression. The project leveraged Voronoi Partitioning Algorithm to optimize the deployment of UAVs, ensuring efficient and unbiased coverage of the affected area.</p>
+                    </div>
+                    <span class="image"><img src="images/voronoi_tessellation.png" alt="Voronoi Tessellation" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+                <!-- Voronoi Tessellation -->
+                <article>
+                    <div class="content">
+                        <h3>Voronoi Tessellation</h3>
+                        <p>I used Voronoi Tessellation to divide the area into convex polygons, with each UAV situated at the centroid of its respective polygon. This method ensured that each drone covered an equal area, optimizing the search and detection process. The MATLAB simulation demonstrated the effectiveness of this approach with 'n' number of drones.</p>
+                    </div>
+                    <span class="image"><img src="images/voronoi_tessellation.png" alt="Voronoi Tessellation" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+                <!-- Hector Quadrotor Simulation -->
+                <article>
+                    <div class="content">
+                        <h3>Hector Quadrotor Simulation</h3>
+                        <p>To simulate the UAVs, I used the Hector Quadrotor in the Gazebo environment. This simulation closely represented real-world flight, allowing for the testing of flight algorithms and control approaches. I equipped the quadrotors with thermal cameras to detect high-temperature areas indicative of fires.</p>
+                    </div>
+                    <span class="image"><img src="images/hector_quadrotor.png" alt="Hector Quadrotor" style="width: 1200px; display: block; margin: 0 auto;" /></span>
+                </article>
+
+                <!-- Results -->
+                <article>
+                    <div class="content">
+                        <h3>Results</h3>
+                        <p>The simulations showed that using Voronoi Tessellation with multiple UAVs significantly improved the efficiency and accuracy of wildfire detection. The Hector Quadrotor equipped with thermal cameras was able to identify fire-affected areas accurately. The system's ability to operate autonomously and in coordination reduced human error and enhanced the effectiveness of wildfire monitoring and suppression.</p>
+                    </div>
+                    <div class="video-container">
+                        <div class="video-item">
+                            <img src="images/results_voronoi.png" alt="Voronoi Results" style="width: 100%;" />
+                            <p>Voronoi Tessellation Results</p>
+                        </div>
+                        <div class="video-item">
+                            <img src="images/results_hector.png" alt="Hector Results" style="width: 100%;" />
+                            <p>Hector Quadrotor Simulation</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Conclusion -->
+                <article>
+                    <div class="content">
+                        <h3>Conclusion</h3>
+                        <p>This project demonstrated the potential of using autonomous UAVs for efficient wildfire detection and suppression. By implementing the Voronoi Partitioning Algorithm and simulating the system in ROS and Gazebo, I was able to create a robust and scalable solution for wildfire management.</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Footer -->
+            <footer class="major">
+                <ul class="actions special">
+                    <li><a href="index.html" class="button">Back to Home</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span the="label">GitHub</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span the="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
